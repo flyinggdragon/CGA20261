@@ -158,11 +158,7 @@ class Cube {
 
     public:
         int VerticesCount = 36;
-
-        // Como o exercício pede para usar o mesmo VAO. Eu não vou usar o VAO de cada instância de Cubo.
-        // A verdade é que eu fiz esse código sem ler o enunciado direito, achando que seria suficiente só desenhar 3 cubos.
         GLuint VAO;
-
         glm::vec3 CubeColor;
         glm::mat4 ModelMatrix;
 
