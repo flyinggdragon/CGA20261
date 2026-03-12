@@ -65,7 +65,7 @@ class Cube {
         glm::mat4 _scaleMatrix;
         glm::mat4 _rotateMatrix;
 
-        void Generate_vertices() {
+        void GenerateVertices() {
             GLfloat _verts[] = {
                 // Face de trás
                 -0.5f, -0.5f, -0.5f,
@@ -172,7 +172,7 @@ class Cube {
         }
 
         void CreateCube() {
-            Generate_vertices();
+            GenerateVertices();
 
             VAO = GenerateVAO();
 
