@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\CMakeFiles\eff17a13612709ace43151a965e51522\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{CD3E3E10-5C53-39BF-9E84-A7F1409CF888}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

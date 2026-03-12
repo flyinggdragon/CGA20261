@@ -1,0 +1,10 @@
+^C:\USERS\ACER\DOCUMENTS\GITHUB\CGA20261\BUILD\CMAKEFILES\EFF17A13612709ACE43151A965E51522\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Acer/Documents/GitHub/CGA20261 -BC:/Users/Acer/Documents/GitHub/CGA20261/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Acer/Documents/GitHub/CGA20261/build/CGA20261.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
