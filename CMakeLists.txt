@@ -46,6 +46,7 @@ include_directories(${stb_image_SOURCE_DIR})
 set(EXERCISES
     Lista1/Ex1
     Lista1/Ex2
+    Lista1/Ex6
 )
 
 # Se formos usar classes separadas, adicionar aqui
@@ -53,13 +54,22 @@ add_library(cube
     src/Lista1/Cube/Cube.cpp
 )
 
-# Linkando assim
 target_include_directories(cube PUBLIC
     src/Lista1
 )
 
-## Linkando GLFW na classe separada.
 target_link_libraries(cube PUBLIC glfw)
+
+# Camera
+add_library(camera
+    src/Lista1/Camera/Camera.cpp
+)
+
+target_include_directories(camera PUBLIC
+    src/Lista1
+)
+
+target_link_libraries(camera PUBLIC glfw)
 
 
 find_package(OpenGL REQUIRED)
@@ -85,7 +95,9 @@ foreach(EXERCISE ${EXERCISES})
 
     target_link_libraries(${EXE_NAME}
         cube
+        camera
         glfw
+        glm
         OpenGL::GL
     )
 

@@ -1,4 +1,4 @@
-// Exercício 2 - Marco
+// Exercício 6 - Marco
 
 #include <iostream>
 #include <string>
@@ -13,12 +13,19 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Cube/Cube.h"
+#include "Camera/Camera.h"
 
 using namespace std;
+
+Camera* camera = nullptr;
 
 // Protótipos de função.
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
 int setupShader();
+
+void MouseCallback(GLFWwindow* window, double xpos, double ypos) {
+	camera->ProcessMouseMovement(xpos, ypos);
+}
 
 const GLuint WIDTH = 800, HEIGHT = 800;
 
@@ -27,9 +34,11 @@ const GLchar *vertexShaderSource = R"(
     layout (location = 0) in vec3 position;
 
     uniform mat4 model;
+    uniform mat4 view;
+    uniform mat4 projection;
 
     void main() {
-        gl_Position = model * vec4(position, 1.0);
+        gl_Position = projection * view * model * vec4(position, 1.0);
     }
 )";
 
@@ -37,26 +46,14 @@ const GLchar *fragmentShaderSource = R"(
     #version 400
 
     uniform vec4 inputColor;
-    uniform float time;
-    uniform bool shouldAnimate;
     out vec4 color;
 
+    uniform float distanceToCamera;
+
     void main() {
-        if (shouldAnimate) {
-            const float PI = 3.14159265;
+        float attenuation = 1.0 / (1.0 + distanceToCamera * 0.3);
 
-            vec3 animatedColor = vec3(
-                (sin(time) + 1.0) / 2.0,
-                (sin(time + (PI * 2) / 3.0) + 1.0) / 2.0,
-                (sin(time + 2.0 * (PI * 2) / 3.0) + 1.0) / 2.0
-            );
-
-            color = vec4(animatedColor, 1.0);
-        }
-
-        else {
-            color = inputColor;
-        }
+        color = vec4(inputColor.rgb * attenuation, 1.0);
     }
 )";
 
@@ -102,49 +99,45 @@ int main() {
 	GLuint shaderID = setupShader();
 
 	Cube* cubes[] = {
-        // Este é o cubo que irá trocar de cor (cubes[i] == 0)
         new Cube(
+            glm::vec3(0.0f, 1.0f, 0.5f),
             glm::vec3(0.0f, 0.0f, 0.0f),
-            glm::vec3(0.0f, -0.5f, 0.0f),
-            glm::vec3(0.7f),
+            glm::vec3(1.0f),
             glm::vec3(0.0f, 0.0f, 1.0f)
         ),
 
         new Cube(
             glm::vec3(0.5f, 0.0f, 1.0f),
-            glm::vec3(-0.6f, 0.6f, 0.0f),
-            glm::vec3(0.5f),
-            glm::vec3(0.0f, 0.0f, 1.0f),
-            glm::radians(27.5f)
+            glm::vec3(5.0f, 0.0f, 5.0f),
+            glm::vec3(0.7f),
+            glm::vec3(0.0f, 0.0f, 1.0f)
         ),
 
         new Cube(
-            glm::vec3(0.0f, 0.0f, 1.0f),
-            glm::vec3(0.6f, 0.6f, 0.0f),
-            glm::vec3(0.25f),
-            glm::vec3(0.0f, 0.0f, 1.0f),
-            glm::radians(45.0f)
-        )
+            glm::vec3(1.0f, 0.0f, 0.5f),
+            glm::vec3(-3.0f, 0.0f, -3.0f),
+            glm::vec3(1.2f),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        ),
     };
+
+    camera = new Camera(900, 700, shaderID, 0.05f, 0.2f);
+	glfwSetCursorPosCallback(window, MouseCallback);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	// Enviando a cor desejada (vec4) para o fragment shader
 	// Utilizamos a variáveis do tipo uniform em GLSL para armazenar esse tipo de info
 	// que não está nos buffers
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
-    GLfloat timeLoc = glGetUniformLocation(shaderID, "time");
-    GLboolean shouldAnimateLoc = glGetUniformLocation(shaderID, "shouldAnimate");
+    GLfloat distanceLoc = glGetUniformLocation(shaderID, "distanceToCamera");
 
 	glUseProgram(shaderID); // Reseta o estado do shader para evitar problemas futuros
 
 	double prev_s = glfwGetTime();	// Define o "tempo anterior" inicial.
 	double title_countdown_s = 0.1; // Intervalo para atualizar o título da janela com o FPS.
 
-	float time;
 	// Loop da aplicação - "game loop"
 	while (!glfwWindowShouldClose(window)) {
-        time = glfwGetTime();
-        glUniform1f(timeLoc, time);
-
 		// Checa se houveram eventos de input (key pressed, mouse moved etc.) e chama as funções de callback correspondentes
 		glfwPollEvents();
         glEnable(GL_DEPTH_TEST);
@@ -155,19 +148,27 @@ int main() {
 
 		glLineWidth(10);
 
-		for (int i = 0; i < size(cubes); i++) {
-            // Cubo atual;
-            Cube* c = cubes[i];
+        // Processa input da câmera (atualiza view matrix e posição)
+		camera->ProcessInput(window);
 
-            glUniform1i(shouldAnimateLoc, i == 0);
+        glm::mat4 view = camera->view;
+		glm::vec3 camPos = camera->position;
+
+        glUniformMatrix4fv(glGetUniformLocation(shaderID, "view"), 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(glGetUniformLocation(shaderID, "projection"), 1, GL_FALSE, glm::value_ptr(camera->proj));
+
+        for (Cube* c : cubes) {
+            float distanceToCamera = glm::distance(camera->position, c->Position);
+            glUniform1f(distanceLoc, distanceToCamera);
 
             glBindVertexArray(c->VAO);
+
+            // Envia a matriz de transformação pro shader.
             glUniformMatrix4fv(glGetUniformLocation(shaderID, "model"), 1, GL_FALSE, glm::value_ptr(c->ModelMatrix));
 
+            // Envia a cor pro shader.
             glUniform4f(colorLoc, c->CubeColor.x, c->CubeColor.y, c->CubeColor.z, 1.0f); // enviando cor para variável uniform inputColor
 
-            // Chamada de desenho - drawcall
-            // Poligono Preenchido - GL_TRIANGLES
             glDrawArrays(GL_TRIANGLES, 0, c->VerticesCount);
         }
 

@@ -14,14 +14,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "OpenGL::GL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OpenGL__GL-Debug-d5143509dab0076c8487.json",
+					"jsonFile" : "target-OpenGL__GL-Debug-88806942d46804055aec.json",
 					"name" : "OpenGL::GL",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "OpenGL::GLU::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OpenGL__GLU-Debug-9704b79bb55d141b6349.json",
+					"jsonFile" : "target-OpenGL__GLU-Debug-b14612ec7ece965db5ed.json",
 					"name" : "OpenGL::GLU",
 					"projectIndex" : 0
 				},
@@ -67,7 +67,9 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3,
+						4
 					]
 				},
 				{
@@ -82,7 +84,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-_deps.glfw-build-Debug-aa6b221c81e89bf01ef0.json",
+					"jsonFile" : "directory-_deps.glfw-build-Debug-a4ff10ca965c67f990e7.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -92,13 +94,13 @@
 					"source" : "build/_deps/glfw-src",
 					"targetIndexes" : 
 					[
-						5
+						7
 					]
 				},
 				{
 					"build" : "_deps/glfw-build/src",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-_deps.glfw-build.src-Debug-602ef78fa1a83fe1ea00.json",
+					"jsonFile" : "directory-_deps.glfw-build.src-Debug-51c84193f34ef2b765b1.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -108,8 +110,8 @@
 					"source" : "build/_deps/glfw-src/src",
 					"targetIndexes" : 
 					[
-						3,
-						6
+						5,
+						8
 					]
 				},
 				{
@@ -154,7 +156,7 @@
 					"source" : "build/_deps/glm-src/glm",
 					"targetIndexes" : 
 					[
-						4
+						6
 					]
 				}
 			],
@@ -182,7 +184,9 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3,
+						4
 					]
 				},
 				{
@@ -200,9 +204,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						3,
 						5,
-						6
+						7,
+						8
 					]
 				},
 				{
@@ -219,7 +223,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						4
+						6
 					]
 				}
 			],
@@ -228,21 +232,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Ex1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Ex1-Debug-47b396a19c3d02ec5ff8.json",
+					"jsonFile" : "target-Ex1-Debug-93174037d5796087cbe5.json",
 					"name" : "Ex1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Ex2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Ex2-Debug-97b67ace00a81ce4868c.json",
+					"jsonFile" : "target-Ex2-Debug-0143a6ca8544b301cf81.json",
 					"name" : "Ex2",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "Ex6::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ex6-Debug-06dcdab2d44aab363043.json",
+					"name" : "Ex6",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera-Debug-4d01237475bf40e5ab9a.json",
+					"name" : "camera",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "cube::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-cube-Debug-77613839f44c1c678e5d.json",
+					"jsonFile" : "target-cube-Debug-0c11e9aaaf287bbfc9a0.json",
 					"name" : "cube",
 					"projectIndex" : 0
 				},

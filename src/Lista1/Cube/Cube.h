@@ -16,10 +16,11 @@ public:
     int VerticesCount = 36;
 
     GLuint VAO;
+    glm::vec3 Position;
     glm::vec3 CubeColor;
     glm::mat4 ModelMatrix;
 
-    Cube(glm::vec3 color, glm::mat4 translate, glm::mat4 scale, glm::mat4 rotate);
+    Cube(glm::vec3 color, glm::vec3 translate, glm::vec3 scale, glm::vec3 rotate, float rotationRadians = glm::radians(0.0f));
 
     void CreateCube();
 };

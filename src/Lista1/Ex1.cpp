@@ -86,23 +86,25 @@ int main() {
 	Cube* cubes[] = {
         new Cube(
             glm::vec3(1.0f, 0.0f, 0.0f),
-            glm::translate(glm::mat4(1.0f), glm::vec3(0.7f, 0.7f, 0.0f)),
-            glm::scale(glm::mat4(1.0f), glm::vec3(0.5f)),
-            glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f))
+            glm::vec3(0.7f, 0.7f, 0.0f),
+            glm::vec3(0.5f),
+            glm::vec3(0.0f, 0.0f, 1.0f)
         ),
 
         new Cube(
             glm::vec3(0.0f, 1.0f, 0.0f),
-            glm::translate(glm::mat4(1.0f), glm::vec3(-0.7f, 0.7f, 0.0f)),
-            glm::scale(glm::mat4(1.0f), glm::vec3(0.3f)),
-            glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f))
+            glm::vec3(-0.7f, 0.7f, 0.0f),
+            glm::vec3(0.3f),
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::radians(45.0f)
         ),
 
         new Cube(
             glm::vec3(0.0f, 0.0f, 1.0f),
-            glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.5f, 0.0f)),
-            glm::scale(glm::mat4(1.0f), glm::vec3(0.7f)),
-            glm::rotate(glm::mat4(1.0f), glm::radians(27.5f), glm::vec3(0.0f, 0.0f, 1.0f))
+            glm::vec3(0.0f, -0.5f, 0.0f),
+            glm::vec3(0.7f),
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::radians(27.5)
         )
     };
 

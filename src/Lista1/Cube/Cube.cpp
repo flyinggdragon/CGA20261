@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <algorithm>
 #include <iterator>
@@ -100,11 +101,12 @@ glm::mat4 Cube::GenerateModelMatrix() {
     return this->_translateMatrix * this->_rotateMatrix * this->_scaleMatrix;
 }
 
-Cube::Cube(glm::vec3 color, glm::mat4 Translate, glm::mat4 scale, glm::mat4 rotate) {
+Cube::Cube(glm::vec3 color, glm::vec3 translate, glm::vec3 scale, glm::vec3 rotate, float rotationRadians) {
     this->CubeColor = color;
-    this->_translateMatrix = Translate;
-    this->_scaleMatrix = scale;
-    this->_rotateMatrix = rotate;
+    this->Position = translate;
+    this->_translateMatrix = glm::translate(glm::mat4(1.0f), translate);
+    this->_scaleMatrix = glm::scale(glm::mat4(1.0f), scale);
+    this->_rotateMatrix = glm::rotate(glm::mat4(1.0f), rotationRadians, rotate);
 
     CreateCube();
 }
