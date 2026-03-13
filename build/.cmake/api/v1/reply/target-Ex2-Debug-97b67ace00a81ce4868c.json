@@ -15,7 +15,6 @@
 		[
 			"add_executable",
 			"target_link_libraries",
-			"add_compile_options",
 			"include_directories"
 		],
 		"files" : 
@@ -36,43 +35,37 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 85,
+				"line" : 86,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 54,
+				"line" : 39,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 2,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
 				"file" : 0,
 				"line" : 41,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 2,
 				"file" : 0,
 				"line" : 42,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 2,
 				"file" : 0,
 				"line" : 43,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 44,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 45,
 				"parent" : 0
 			}
 		]
@@ -86,11 +79,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "cube::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "glfw::@fa9f4482d3a2b070f206"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "glm::@ce54d98d7b326a3e12a8"
+			"id" : "OpenGL::GL::@6890427a1f51a3e7e1df"
 		}
 	],
 	"compileGroups" : 
@@ -100,33 +97,33 @@
 			[
 				{
 					"fragment" : "-g -std=gnu++17"
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-Wno-pragmas"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/common"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/include/glad"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 6,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/build/_deps/glm-src"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 7,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/build/_deps/stb_image-src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/src/Lista1"
 				},
 				{
 					"backtrace" : 2,
@@ -152,33 +149,33 @@
 			[
 				{
 					"fragment" : "-g"
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-Wno-pragmas"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/common"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/include/glad"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 6,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/build/_deps/glm-src"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 7,
 					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/build/_deps/stb_image-src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/Acer/Documents/GitHub/CGA20261/src/Lista1"
 				},
 				{
 					"backtrace" : 2,
@@ -196,11 +193,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "glfw::@fa9f4482d3a2b070f206"
+			"id" : "cube::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "glm::@ce54d98d7b326a3e12a8"
+			"id" : "glfw::@fa9f4482d3a2b070f206"
 		}
 	],
 	"id" : "Ex2::@6890427a1f51a3e7e1df",
@@ -214,17 +211,17 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "libcube.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "_deps\\glfw-build\\src\\libglfw3.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
 				"fragment" : "-lopengl32",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "_deps\\glm-build\\glm\\libglm.a",
 				"role" : "libraries"
 			},
 			{
@@ -238,15 +235,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "cube::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "glfw::@fa9f4482d3a2b070f206"
 		},
 		{
 			"backtrace" : 2,
-			"fragment" : "opengl32"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "glm::@ce54d98d7b326a3e12a8"
+			"id" : "OpenGL::GL::@6890427a1f51a3e7e1df"
 		}
 	],
 	"name" : "Ex2",
