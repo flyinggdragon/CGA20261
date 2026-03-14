@@ -150,7 +150,7 @@ int main() {
 	}
 
     for (Cube* c : cubes) {
-        glDeleteVertexArrays(1, &c->VAO);
+        glDeleteVertexArrays(1, &cubeVAO);
     }
 	
 	// Finaliza a execução da GLFW, limpando os recursos alocados por ela

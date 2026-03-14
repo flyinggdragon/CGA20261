@@ -7,6 +7,9 @@ Camera::Camera(float WIDTH, float HEIGHT, GLuint shaderProgram, float cameraSpee
 	sensitivity = camSensitivity;
 	speed = cameraSpeed;
 
+    this->WIDTH = WIDTH;
+    this->HEIGHT = HEIGHT;
+
 	lastX = WIDTH / 2.0f;
 	lastY = HEIGHT / 2.0f;
 
@@ -22,8 +25,10 @@ Camera::Camera(float WIDTH, float HEIGHT, GLuint shaderProgram, float cameraSpee
 	viewLocation = glGetUniformLocation(shaderProgram, "view");
 	projLocation = glGetUniformLocation(shaderProgram, "projection");
 
+    fieldOfView = glm::radians(90.0f);
+
 	// Cria a matriz de perspectiva e envia para o shader via uniform.
-	proj = glm::perspective(glm::radians(90.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
+	proj = glm::perspective(fieldOfView, (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 	glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(proj));
 
 	UpdateDirection();
@@ -31,6 +36,16 @@ Camera::Camera(float WIDTH, float HEIGHT, GLuint shaderProgram, float cameraSpee
 
 Camera::~Camera() {
 
+}
+
+void Camera::UpdateFOV(float value, GLuint shader) {
+    this->fieldOfView += value;
+
+    viewLocation = glGetUniformLocation(shader, "view");
+	projLocation = glGetUniformLocation(shader, "projection");
+
+	// Cria a matriz de perspectiva e envia para o shader via uniform.
+	proj = glm::perspective(fieldOfView, (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 }
 
 void Camera::UpdateDirection() {

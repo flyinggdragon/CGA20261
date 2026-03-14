@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "libcamera.a"
+			"path" : "libcube.a"
 		}
 	],
 	"backtrace" : 1,
@@ -28,13 +28,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 64,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 72,
+				"line" : 62,
 				"parent" : 0
 			},
 			{
@@ -70,7 +70,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 68,
+				"line" : 58,
 				"parent" : 0
 			}
 		]
@@ -149,7 +149,7 @@
 			"id" : "glfw::@fa9f4482d3a2b070f206"
 		}
 	],
-	"id" : "camera::@6890427a1f51a3e7e1df",
+	"id" : "cube::@6890427a1f51a3e7e1df",
 	"interfaceCompileDependencies" : 
 	[
 		{
@@ -171,8 +171,8 @@
 			"id" : "glfw::@fa9f4482d3a2b070f206"
 		}
 	],
-	"name" : "camera",
-	"nameOnDisk" : "libcamera.a",
+	"name" : "cube",
+	"nameOnDisk" : "libcube.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -193,7 +193,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Lista1/Camera/Camera.cpp",
+			"path" : "src/Lista1/Cube/Cube.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

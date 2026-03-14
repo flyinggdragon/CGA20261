@@ -9,7 +9,10 @@ class Camera {
         ~Camera();
         void ProcessMouseMovement(double xpos, double ypos);
         void ProcessInput(GLFWwindow* window);
+        void UpdateFOV(float value, GLuint shader);
 
+        float WIDTH;
+        float HEIGHT;
         glm::vec3 position;
         glm::vec3 target;
         glm::vec3 front;
@@ -24,6 +27,7 @@ class Camera {
         float firstMouse = true;
         double lastX;
         double lastY;
+        float fieldOfView;
         int viewLocation;
         int projLocation;
 

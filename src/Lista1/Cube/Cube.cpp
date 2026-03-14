@@ -111,6 +111,10 @@ Cube::Cube(glm::vec3 color, glm::vec3 translate, glm::vec3 scale, glm::vec3 rota
     CreateCube();
 }
 
+Cube::~Cube() {
+    
+}
+
 void Cube::CreateCube() {
     GenerateVertices();
 

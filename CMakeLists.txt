@@ -47,6 +47,7 @@ set(EXERCISES
     Lista1/Ex1
     Lista1/Ex2
     Lista1/Ex6
+    Lista1/Ex7
 )
 
 # Se formos usar classes separadas, adicionar aqui

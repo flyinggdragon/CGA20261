@@ -1,4 +1,4 @@
-// Exercício 6 - Marco
+// Exercício 7 - Marco
 
 #include <iostream>
 #include <string>
@@ -18,6 +18,7 @@
 using namespace std;
 
 Camera* camera = nullptr;
+GLuint shaderID = 0;
 
 // Protótipos de função.
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
@@ -65,7 +66,7 @@ int main() {
 	glfwWindowHint(GLFW_SAMPLES, 8);
 
 	// Criação da janela GLFW
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Exercício 6", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Exercício 7", nullptr, nullptr);
 	if (!window) {
 		std::cerr << "Falha ao criar a janela GLFW" << std::endl;
 		glfwTerminate();
@@ -96,7 +97,7 @@ int main() {
 	glViewport(0, 0, width, height);
 
 	// Compilando e buildando o programa de shader
-	GLuint shaderID = setupShader();
+	shaderID = setupShader();
 
 	Cube* cubes[] = {
         new Cube(
@@ -136,8 +137,24 @@ int main() {
 	double prev_s = glfwGetTime();	// Define o "tempo anterior" inicial.
 	double title_countdown_s = 0.1; // Intervalo para atualizar o título da janela com o FPS.
 
+    float deltaTime = 0.0f;
+    float lastFrame = 0.0f;
+
 	// Loop da aplicação - "game loop"
 	while (!glfwWindowShouldClose(window)) {
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
+        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+            camera->UpdateFOV(0.5f * deltaTime, shaderID);
+        }
+            
+
+        if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+            camera->UpdateFOV(-0.5f * deltaTime, shaderID);
+        }
+        
 		// Checa se houveram eventos de input (key pressed, mouse moved etc.) e chama as funções de callback correspondentes
 		glfwPollEvents();
         glEnable(GL_DEPTH_TEST);
