@@ -1,8 +1,7 @@
 Entregas para a cadeira de Computação Gráfica Avançada 2026-1.
 
-# Alunos
+# Aluno
 - Marco di Iorio
-- Geovani
 
 # Lista 1
 ### Aqueles que precisam de controles:
