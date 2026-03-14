@@ -1,4 +1,4 @@
-// Exercício 8 - Marco
+// Exercício 9 - Marco
 
 #include <iostream>
 #include <string>
@@ -18,7 +18,6 @@
 using namespace std;
 
 Camera* camera = nullptr;
-bool cursorEnabled = false;
 
 // Protótipos de função.
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
@@ -97,31 +96,38 @@ int main() {
 
 	Cube* cubes[] = {
         new Cube(
-            glm::vec3(0.0f, 1.0f, 0.5f),
-            glm::vec3(0.0f, 0.0f, 0.0f),
+            glm::vec3(1.0f, 1.0f, 0.5f),
+            glm::vec3(0.0f, 0.0f, -15.0f),
+            glm::vec3(1.5f),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        ),
+
+        new Cube(
+            glm::vec3(1.0f, 1.0f, 0.0f),
+            glm::vec3(15.0f, 0.0f, 5.0f),
+            glm::vec3(0.7f),
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::radians(45.0f)
+        ),
+
+        new Cube(
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::vec3(-11.0f, 0.0f, 5.0f),
             glm::vec3(1.0f),
             glm::vec3(0.0f, 0.0f, 1.0f)
         ),
 
         new Cube(
-            glm::vec3(0.5f, 0.0f, 1.0f),
-            glm::vec3(5.0f, 0.0f, 5.0f),
-            glm::vec3(0.7f),
-            glm::vec3(0.0f, 0.0f, 1.0f)
-        ),
-
-        new Cube(
-            glm::vec3(1.0f, 0.0f, 0.5f),
-            glm::vec3(-3.0f, 0.0f, -3.0f),
-            glm::vec3(1.2f),
+            glm::vec3(1.0f, 0.5f, 0.0f),
+            glm::vec3(0.0f, 0.0f, -50.0f),
+            glm::vec3(40.0f),
             glm::vec3(0.0f, 0.0f, 1.0f)
         ),
     };
 
     camera = new Camera(900, 700, shaderID, 0.05f, 0.2f);
-    glfwSetCursorPosCallback(window, MouseCallback);
-
-    glfwSetInputMode(window, GLFW_CURSOR, cursorEnabled ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(window, MouseCallback);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	// Enviando a cor desejada (vec4) para o fragment shader
 	// Utilizamos a variáveis do tipo uniform em GLSL para armazenar esse tipo de info
@@ -183,17 +189,8 @@ int main() {
 // estiver dentro de uma classe) - É chamada sempre que uma tecla for pressionada
 // ou solta via GLFW
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode) {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, GL_TRUE);
-    }
-    
-    if (key == GLFW_KEY_I && action == GLFW_PRESS) {
-        cursorEnabled = !cursorEnabled;
-
-        glfwSetInputMode(window, GLFW_CURSOR, cursorEnabled ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
-
-        camera->firstMouse = true;
-    }
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
 // Esta função está bastante hardcoded - objetivo é compilar e "buildar" um programa de
