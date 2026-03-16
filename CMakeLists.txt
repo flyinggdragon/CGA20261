@@ -50,6 +50,7 @@ set(EXERCISES
     Lista1/Ex7
     Lista1/Ex8
     Lista1/Ex9
+    Lista2/Ex2-1
 )
 
 # Se formos usar classes separadas, adicionar aqui
@@ -59,6 +60,7 @@ add_library(cube
 
 target_include_directories(cube PUBLIC
     src/Lista1
+    src/Lista2
 )
 
 target_link_libraries(cube PUBLIC glfw)
@@ -70,6 +72,7 @@ add_library(camera
 
 target_include_directories(camera PUBLIC
     src/Lista1
+    src/Lista2
 )
 
 target_link_libraries(camera PUBLIC glfw)
