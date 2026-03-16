@@ -3,9 +3,6 @@
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
-  <PropertyGroup>
-    <ResolveNugetPackages>false</ResolveNugetPackages>
-  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -25,34 +22,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D9EB246E-BEDE-3B38-A9FE-27F6D492C1B8}</ProjectGuid>
+    <ProjectGuid>{FFAD6F2D-A7E0-3B1A-B0C5-37CFA589AF6E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
-    <ProjectName>ALL_BUILD</ProjectName>
+    <ProjectName>camera</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -66,50 +63,188 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Acer\Documents\GitHub\CGA20261\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">camera.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">camera</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Acer\Documents\GitHub\CGA20261\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">camera.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">camera</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Acer\Documents\GitHub\CGA20261\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">camera.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">camera</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Acer\Documents\GitHub\CGA20261\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">camera.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">camera</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Documents\GitHub\CGA20261\include;C:\Users\Acer\Documents\GitHub\CGA20261\common;C:\Users\Acer\Documents\GitHub\CGA20261\include\glad;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-src;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\stb_image-src;C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1;C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Acer\Documents\GitHub\CGA20261\CMakeLists.txt">
@@ -169,6 +304,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista1\Camera\Camera.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -178,45 +314,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex1.vcxproj">
-      <Project>{6617AB9E-CF0F-3ABF-844E-32674FF07876}</Project>
-      <Name>Ex1</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex2.vcxproj">
-      <Project>{283E8084-66E2-3A80-A37B-465F02AEA742}</Project>
-      <Name>Ex2</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex6.vcxproj">
-      <Project>{80929A51-24F1-3EBC-A69F-B3E543BEE4D8}</Project>
-      <Name>Ex6</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex7.vcxproj">
-      <Project>{CE1CF5B9-AD22-3D21-A7C3-35CAD3AD4E37}</Project>
-      <Name>Ex7</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex8.vcxproj">
-      <Project>{5F3F5E2F-6228-34AB-AB88-EB3187581B42}</Project>
-      <Name>Ex8</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex9.vcxproj">
-      <Project>{61E149A3-D791-374B-8947-4B999CCD5D09}</Project>
-      <Name>Ex9</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\camera.vcxproj">
-      <Project>{FFAD6F2D-A7E0-3B1A-B0C5-37CFA589AF6E}</Project>
-      <Name>camera</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\cube.vcxproj">
-      <Project>{826B984C-9320-336F-A249-AE2448BB2519}</Project>
-      <Name>cube</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glfw-build\src\glfw.vcxproj">
       <Project>{C9C2FA5C-2C5D-3B2D-9920-1B1654B40A58}</Project>
       <Name>glfw</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\_deps\glm-build\glm\glm.vcxproj">
-      <Project>{2DFDF481-4A8C-3D71-847E-5FBEBBFF7542}</Project>
-      <Name>glm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
