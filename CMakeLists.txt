@@ -51,6 +51,7 @@ set(EXERCISES
     Lista1/Ex8
     Lista1/Ex9
     Lista2/Ex2-1
+    Lista2/Ex2-2
 )
 
 # Se formos usar classes separadas, adicionar aqui

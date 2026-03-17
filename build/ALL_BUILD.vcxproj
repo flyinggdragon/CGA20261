@@ -190,6 +190,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{62AD909B-81B9-3A80-9518-3E2614A7D938}</Project>
       <Name>Ex2-1</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex2-2.vcxproj">
+      <Project>{83A6A140-0828-3F3F-8556-137C5B1889CA}</Project>
+      <Name>Ex2-2</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Acer\Documents\GitHub\CGA20261\build\Ex6.vcxproj">
       <Project>{80929A51-24F1-3EBC-A69F-B3E543BEE4D8}</Project>
       <Name>Ex6</Name>
