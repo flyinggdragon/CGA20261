@@ -64,8 +64,32 @@ void Cube::GenerateVertices() {
     copy(begin(_verts), end(_verts), _vertices);
 }
 
+void Cube::GenerateNormals() {
+    GLfloat normals[] = {
+        // atrás
+        0,0,-1, 0,0,-1, 0,0,-1, 0,0,-1, 0,0,-1, 0,0,-1,
+
+        // frente
+        0,0,1, 0,0,1, 0,0,1, 0,0,1, 0,0,1, 0,0,1,
+
+        // esquerda
+        -1,0,0, -1,0,0, -1,0,0, -1,0,0, -1,0,0, -1,0,0,
+
+        // direita
+        1,0,0, 1,0,0, 1,0,0, 1,0,0, 1,0,0, 1,0,0,
+
+        // baixo
+        0,-1,0, 0,-1,0, 0,-1,0, 0,-1,0, 0,-1,0, 0,-1,0,
+
+        // cima
+        0,1,0, 0,1,0, 0,1,0, 0,1,0, 0,1,0, 0,1,0
+    };
+
+    std::copy(std::begin(normals), std::end(normals), _normals);
+}
+
 GLuint Cube::GenerateVAO() {
-    GLuint VBO, VAO;
+    GLuint n_VBO, VBO, VAO;
 
     // Geração do identificador do VAO (Vertex Array Object)
     glGenVertexArrays(1, &VAO);
@@ -88,8 +112,15 @@ GLuint Cube::GenerateVAO() {
     //  Se está normalizado (entre zero e um)
     //  Tamanho em bytes
     //  Deslocamento a partir do byte zero (stride)
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid *)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+
+    glGenBuffers(1, &n_VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, n_VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(_normals), _normals, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(1);
 
     // Desvincula o VAO (é uma boa prática desvincular qualquer buffer ou array para evitar bugs medonhos)
     glBindVertexArray(0);
@@ -117,6 +148,7 @@ Cube::~Cube() {
 
 void Cube::CreateCube() {
     GenerateVertices();
+    GenerateNormals();
 
     VAO = GenerateVAO();
 

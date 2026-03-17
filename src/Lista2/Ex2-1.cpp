@@ -33,16 +33,21 @@ const GLchar *vertexShaderSource = R"(
     #version 400
 
     layout (location = 0) in vec3 position;
+    layout (location = 1) in vec3 normal;
 
     uniform mat4 model;
     uniform mat4 view;
     uniform mat4 projection;
 
     out vec3 fragPos;
+    out vec3 fragNormal;
 
     void main() {
         vec4 worldPos = model * vec4(position, 1.0);
         fragPos = worldPos.xyz;
+
+        mat3 normalMatrix = transpose(inverse(mat3(model)));
+        fragNormal = normalize(normalMatrix * normal);
 
         gl_Position = projection * view * worldPos;
     }
@@ -52,6 +57,7 @@ const GLchar *fragmentShaderSource = R"(
     #version 400
 
     in vec3 fragPos;
+    in vec3 fragNormal;
 
     uniform vec4 inputColor;
     uniform vec3 lightPosition;
@@ -64,7 +70,7 @@ const GLchar *fragmentShaderSource = R"(
     out vec4 color;
 
     void main() {
-        vec3 normal = vec3(0.0, 0.0, 1.0);
+        vec3 normal = normalize(fragNormal);
 
         vec3 lightDirection = normalize(lightPosition - fragPos);
 

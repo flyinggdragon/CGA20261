@@ -8,11 +8,13 @@ private:
     glm::mat4 _rotateMatrix;
 
     void GenerateVertices();
+    void GenerateNormals();
     GLuint GenerateVAO();
     glm::mat4 GenerateModelMatrix();
 
 public:
     GLfloat _vertices[108];
+    GLfloat _normals[108];
     int VerticesCount = 36;
 
     GLuint VAO;
