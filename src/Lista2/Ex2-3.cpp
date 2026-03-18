@@ -18,6 +18,7 @@
 using namespace std;
 
 Camera* camera = nullptr;
+bool isUsingBlinnPhong = false;
 
 // Protótipos de função.
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
@@ -33,16 +34,20 @@ const GLchar *vertexShaderSource = R"(
     #version 400
 
     layout (location = 0) in vec3 position;
+    layout (location = 1) in vec3 normal;
 
     uniform mat4 model;
     uniform mat4 view;
     uniform mat4 projection;
 
     out vec3 fragPos;
+    out vec3 fragNormal;
 
     void main() {
         vec4 worldPos = model * vec4(position, 1.0);
         fragPos = worldPos.xyz;
+
+        fragNormal = mat3(transpose(inverse(model))) * normal;
 
         gl_Position = projection * view * worldPos;
     }
@@ -52,6 +57,7 @@ const GLchar *fragmentShaderSource = R"(
     #version 400
 
     in vec3 fragPos;
+    in vec3 fragNormal;
 
     uniform vec3 ambientLightColor;
 
@@ -63,39 +69,50 @@ const GLchar *fragmentShaderSource = R"(
     uniform float b;
     uniform float c;
 
+    uniform float ks;
+    uniform float shininess;
+    uniform vec3 lightColor;
+
+    uniform bool isUsingBlinnPhong;
+
     out vec4 color;
 
     void main() {
-        vec3 normal = vec3(0.0, 0.0, 1.0);
+        vec3 normal = normalize(fragNormal);
 
-        // luz ambiente
         vec3 ambient = ambientLightColor * inputColor.rgb;
 
-        // luz pontual
         vec3 lightDirection = normalize(lightPosition - fragPos);
 
         float diff = max(dot(normal, lightDirection), 0.0);
-        vec3 diffuse = diff * inputColor.rgb;
-
-        float d = length(lightPosition - fragPos);
-        float attenuation = 1.0 / (a + b * d + c * d * d);
+        vec3 diffuse = diff * lightColor * inputColor.rgb;
 
         vec3 viewDir = normalize(viewPos - fragPos);
         vec3 reflectDir = reflect(-lightDirection, normal);
 
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-        vec3 specular = spec * vec3(1.0);
+        float spec = 0.0;
 
-        // atenuação
+        if (isUsingBlinnPhong) {
+            vec3 halfwayDir = normalize(lightDirection + viewDir);
+            spec = pow(max(dot(normal, halfwayDir), 0.0), shininess);
+        }
+        else {
+            vec3 reflectDir = reflect(-lightDirection, normal);
+            spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+        }
+
+        vec3 specular = ks * spec * lightColor;
+
+        float d = length(lightPosition - fragPos);
+        float attenuation = 1.0 / (a + b * d + c * d * d);
+
         diffuse *= attenuation;
         specular *= attenuation;
 
         vec3 result = ambient + diffuse + specular;
-
         color = vec4(result, inputColor.a);
     }
 )";
-
 
 int main() {
 	glfwInit();
@@ -150,14 +167,8 @@ int main() {
 	glfwSetCursorPosCallback(window, MouseCallback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-	// Locations todas
-    GLint ambientLoc = glGetUniformLocation(shaderID, "ambientLightColor");
-    GLint lightPosLoc = glGetUniformLocation(shaderID, "lightPosition");
-    GLint viewPosLoc = glGetUniformLocation(shaderID, "viewPos");
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
-    GLint attALoc = glGetUniformLocation(shaderID, "a");
-    GLint attBLoc = glGetUniformLocation(shaderID, "b");
-    GLint attCLoc = glGetUniformLocation(shaderID, "c");
+    GLint blinnPhongToggleLocation = glGetUniformLocation(shaderID, "isUsingBlinnPhong");
 
 	double prev_s = glfwGetTime();	// Define o "tempo anterior" inicial.
 	double title_countdown_s = 0.1; // Intervalo para atualizar o título da janela com o FPS.
@@ -183,16 +194,22 @@ int main() {
 
         glUseProgram(shaderID);
 
-        glUniform3f(ambientLoc, 0.0f, 0.0f, 0.3f);
+        glUniform3f(glGetUniformLocation(shaderID, "ambientLightColor"), 0.0f, 0.0f, 0.3f);
         glUniformMatrix4fv(glGetUniformLocation(shaderID, "view"), 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(glGetUniformLocation(shaderID, "projection"), 1, GL_FALSE, glm::value_ptr(camera->proj));
         
-        glUniform3f(lightPosLoc, 0.0f, 0.0f, 2.0f);
-        glUniform3f(viewPosLoc, camPos.x, camPos.y, camPos.z);
-        glUniform1f(attALoc, 1.0f);
-        glUniform1f(attBLoc, 0.09f);
-        glUniform1f(attCLoc, 0.032f);
+        glUniform3f(glGetUniformLocation(shaderID, "lightPosition"), 2.0f, 0.0f, 2.0f);
+        glUniform3f(glGetUniformLocation(shaderID, "viewPos"), camPos.x, camPos.y, camPos.z);
+        glUniform1f(glGetUniformLocation(shaderID, "a"), 1.0f);
+        glUniform1f(glGetUniformLocation(shaderID, "b"), 0.09f);
+        glUniform1f(glGetUniformLocation(shaderID, "c"), 0.032f);
+
+        glUniform3f(glGetUniformLocation(shaderID, "lightColor"), 1.0f, 1.0f, 1.0f);
+        glUniform1f(glGetUniformLocation(shaderID, "ks"), 0.5f);
+        glUniform1f(glGetUniformLocation(shaderID, "shininess"), 32.0f);
         
+        glUniform1i(blinnPhongToggleLocation, isUsingBlinnPhong);
+
         for (Cube* c : cubes) {
             glBindVertexArray(c->VAO);
 
@@ -222,8 +239,13 @@ int main() {
 // estiver dentro de uma classe) - É chamada sempre que uma tecla for pressionada
 // ou solta via GLFW
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode) {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, GL_TRUE);
+    }
+
+    if (key == GLFW_KEY_B && action == GLFW_PRESS) {
+        isUsingBlinnPhong = !isUsingBlinnPhong;
+    }
 }
 
 // Esta função está bastante hardcoded - objetivo é compilar e "buildar" um programa de
