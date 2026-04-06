@@ -1,4 +1,4 @@
-// Exercício 2-2
+// Exercício 2 - Marco
 
 #include <iostream>
 #include <string>
@@ -13,91 +13,50 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Cube/Cube.h"
-#include "Camera/Camera.h"
 
 using namespace std;
-
-Camera* camera = nullptr;
 
 // Protótipos de função.
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
 int setupShader();
 
-void MouseCallback(GLFWwindow* window, double xpos, double ypos) {
-	camera->ProcessMouseMovement(xpos, ypos);
-}
-
 const GLuint WIDTH = 800, HEIGHT = 800;
 
 const GLchar *vertexShaderSource = R"(
     #version 400
-
     layout (location = 0) in vec3 position;
-    layout (location = 1) in vec3 normal;
 
     uniform mat4 model;
-    uniform mat4 view;
-    uniform mat4 projection;
-
-    out vec3 fragPos;
-    out vec3 fragNormal;
 
     void main() {
-        vec4 worldPos = model * vec4(position, 1.0);
-        fragPos = worldPos.xyz;
-
-        fragNormal = mat3(transpose(inverse(model))) * normal;
-
-        gl_Position = projection * view * worldPos;
+        gl_Position = model * vec4(position, 1.0);
     }
 )";
 
 const GLchar *fragmentShaderSource = R"(
     #version 400
 
-    in vec3 fragPos;
-    in vec3 fragNormal;
-
-    uniform vec3 ambientLightColor;
-
     uniform vec4 inputColor;
-    uniform vec3 lightPosition;
-    uniform vec3 viewPos;
-
-    uniform float a;
-    uniform float b;
-    uniform float c;
-
+    uniform float time;
+    uniform bool shouldAnimate;
     out vec4 color;
 
     void main() {
-        vec3 normal = normalize(fragNormal);
+        if (shouldAnimate) {
+            const float PI = 3.14159265;
 
-        // luz ambiente
-        vec3 ambient = ambientLightColor * inputColor.rgb;
+            vec3 animatedColor = vec3(
+                (sin(time) + 1.0) / 2.0,
+                (sin(time + (PI * 2) / 3.0) + 1.0) / 2.0,
+                (sin(time + 2.0 * (PI * 2) / 3.0) + 1.0) / 2.0
+            );
 
-        // luz pontual
-        vec3 lightDirection = normalize(lightPosition - fragPos);
+            color = vec4(animatedColor, 1.0);
+        }
 
-        float diff = max(dot(normal, lightDirection), 0.0);
-        vec3 diffuse = diff * inputColor.rgb;
-
-        float d = length(lightPosition - fragPos);
-        float attenuation = 1.0 / (a + b * d + c * d * d);
-
-        vec3 viewDir = normalize(viewPos - fragPos);
-        vec3 reflectDir = reflect(-lightDirection, normal);
-
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-        vec3 specular = spec * vec3(1.0);
-
-        // atenuação
-        diffuse *= attenuation;
-        specular *= attenuation;
-
-        vec3 result = ambient + diffuse + specular;
-
-        color = vec4(result, inputColor.a);
+        else {
+            color = inputColor;
+        }
     }
 )";
 
@@ -109,7 +68,7 @@ int main() {
 	glfwWindowHint(GLFW_SAMPLES, 8);
 
 	// Criação da janela GLFW
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Exercício 6", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Exercício 2", nullptr, nullptr);
 	if (!window) {
 		std::cerr << "Falha ao criar a janela GLFW" << std::endl;
 		glfwTerminate();
@@ -143,36 +102,52 @@ int main() {
 	GLuint shaderID = setupShader();
 
 	Cube* cubes[] = {
+        // Este é o cubo que irá trocar de cor (cubes[i] == 0)
         new Cube(
-            glm::vec3(1.0f, 1.0f, 1.0f),
-            glm::vec3(0.0f, 0.0f, -5.0f),
-            glm::vec3(10.0f),
+            glm::vec3(0.0f, 0.0f, 0.0f),
+            glm::vec3(0.0f, -0.5f, 0.0f),
+            glm::vec3(0.7f),
             glm::vec3(0.0f, 0.0f, 1.0f)
         ),
+
+        new Cube(
+            glm::vec3(0.5f, 0.0f, 1.0f),
+            glm::vec3(-0.6f, 0.6f, 0.0f),
+            glm::vec3(0.5f),
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::radians(27.5f)
+        ),
+
+        new Cube(
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::vec3(0.6f, 0.6f, 0.0f),
+            glm::vec3(0.25f),
+            glm::vec3(0.0f, 0.0f, 1.0f),
+            glm::radians(45.0f)
+        )
     };
 
-    camera = new Camera(WIDTH, HEIGHT, shaderID, 0.05f, 0.2f);
-	glfwSetCursorPosCallback(window, MouseCallback);
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-	// Locations todas
-    GLint ambientLoc = glGetUniformLocation(shaderID, "ambientLightColor");
-    GLint lightPosLoc = glGetUniformLocation(shaderID, "lightPosition");
-    GLint viewPosLoc = glGetUniformLocation(shaderID, "viewPos");
+	// Enviando a cor desejada (vec4) para o fragment shader
+	// Utilizamos a variáveis do tipo uniform em GLSL para armazenar esse tipo de info
+	// que não está nos buffers
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
-    GLint attALoc = glGetUniformLocation(shaderID, "a");
-    GLint attBLoc = glGetUniformLocation(shaderID, "b");
-    GLint attCLoc = glGetUniformLocation(shaderID, "c");
+    GLfloat timeLoc = glGetUniformLocation(shaderID, "time");
+    GLboolean shouldAnimateLoc = glGetUniformLocation(shaderID, "shouldAnimate");
+
+	glUseProgram(shaderID); // Reseta o estado do shader para evitar problemas futuros
 
 	double prev_s = glfwGetTime();	// Define o "tempo anterior" inicial.
 	double title_countdown_s = 0.1; // Intervalo para atualizar o título da janela com o FPS.
-    
-    glEnable(GL_DEPTH_TEST);
 
+	float time;
 	// Loop da aplicação - "game loop"
 	while (!glfwWindowShouldClose(window)) {
+        time = glfwGetTime();
+        glUniform1f(timeLoc, time);
+
 		// Checa se houveram eventos de input (key pressed, mouse moved etc.) e chama as funções de callback correspondentes
 		glfwPollEvents();
+        glEnable(GL_DEPTH_TEST);
 
 		// Limpa o buffer de cor
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // cor de fundo
@@ -180,33 +155,19 @@ int main() {
 
 		glLineWidth(10);
 
-        // Processa input da câmera (atualiza view matrix e posição)
-		camera->ProcessInput(window);
+		for (int i = 0; i < size(cubes); i++) {
+            // Cubo atual;
+            Cube* c = cubes[i];
 
-        glm::mat4 view = camera->view;
-		glm::vec3 camPos = camera->position;
+            glUniform1i(shouldAnimateLoc, i == 0);
 
-        glUseProgram(shaderID);
-
-        glUniform3f(ambientLoc, 0.0f, 0.0f, 0.3f);
-        glUniformMatrix4fv(glGetUniformLocation(shaderID, "view"), 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(glGetUniformLocation(shaderID, "projection"), 1, GL_FALSE, glm::value_ptr(camera->proj));
-        
-        glUniform3f(lightPosLoc, 0.0f, 0.0f, 2.0f);
-        glUniform3f(viewPosLoc, camPos.x, camPos.y, camPos.z);
-        glUniform1f(attALoc, 1.0f);
-        glUniform1f(attBLoc, 0.09f);
-        glUniform1f(attCLoc, 0.032f);
-        
-        for (Cube* c : cubes) {
             glBindVertexArray(c->VAO);
-
-            // Envia a matriz de transformação pro shader.
             glUniformMatrix4fv(glGetUniformLocation(shaderID, "model"), 1, GL_FALSE, glm::value_ptr(c->ModelMatrix));
 
-            // Envia a cor pro shader.
             glUniform4f(colorLoc, c->CubeColor.x, c->CubeColor.y, c->CubeColor.z, 1.0f); // enviando cor para variável uniform inputColor
 
+            // Chamada de desenho - drawcall
+            // Poligono Preenchido - GL_TRIANGLES
             glDrawArrays(GL_TRIANGLES, 0, c->VerticesCount);
         }
 

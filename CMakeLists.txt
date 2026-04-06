@@ -44,39 +44,39 @@ include_directories(${stb_image_SOURCE_DIR})
 
 # Lista de exemplos/exercícios podem ser colocados aqui também
 set(EXERCISES
-    Lista1/Ex1
-    Lista1/Ex2
-    Lista1/Ex6
-    Lista1/Ex7
-    Lista1/Ex8
-    Lista1/Ex9
     Lista2/Ex2-1
     Lista2/Ex2-2
-    Lista2/Ex2-3
-    Lista2/Ex2-4
-    Lista2/Ex2-5
+    Lista2/Ex2-6
+    Lista2/Ex2-7
+    Lista2/Ex2-8
+    Lista2/Ex2-9
+    Lista3/Ex3-1
+    Lista3/Ex3-2
+    Lista3/Ex3-3
+    Lista3/Ex3-4
+    Lista3/Ex3-5
 )
 
 # Se formos usar classes separadas, adicionar aqui
 add_library(cube
-    src/Lista1/Cube/Cube.cpp
+    src/Lista2/Cube/Cube.cpp
 )
 
 target_include_directories(cube PUBLIC
-    src/Lista1
     src/Lista2
+    src/Lista3
 )
 
 target_link_libraries(cube PUBLIC glfw)
 
 # Camera
 add_library(camera
-    src/Lista1/Camera/Camera.cpp
+    src/Lista2/Camera/Camera.cpp
 )
 
 target_include_directories(camera PUBLIC
-    src/Lista1
     src/Lista2
+    src/Lista3
 )
 
 target_link_libraries(camera PUBLIC glfw)
