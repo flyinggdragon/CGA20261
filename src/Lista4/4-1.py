@@ -487,6 +487,14 @@ def enviaUniformsCena():
         glGetUniformLocation(Shader_programm, "esfera3_refletividade"), np.float32(0.0)
     )
     
+    luzes = np.array(
+        [
+            [3.0, 4.0, 2.0],
+            [-4.0, 5.0, -1.0],
+            [-40.0, 5.0, 12.0],
+        ]
+    );
+    
     glUniform3fv(
         glGetUniformLocation(Shader_programm, "luzes"),
         len(luzes),
@@ -551,12 +559,4 @@ def main():
 
 
 if __name__ == "__main__":
-    luzes = np.array(
-        [
-            [3.0, 4.0, 2.0],
-            [-4.0, 5.0, -1.0],
-            [-40.0, 5.0, 12.0],
-        ]
-    );
-    
     main()
