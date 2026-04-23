@@ -1,14 +1,17 @@
 Entregas para a cadeira de Computação Gráfica Avançada 2026-1.
 
-Nas listas, por uma falha na comunicação, eu (Marco) fiz no C++ e o Geovani fez no Python. Os projetos de GA e GB serão feitos todos em Python. Pelo mesmo motivo também há uma redundância de exercícios entre os dois.
+# Conteúdos
+- src -> Listas de exercícios
+- Projeto Grau A
 
 # Alunos
 - Marco di Iorio
 - Geovani
 
-# Lista 1
-### Para aqueles exercícios que precisam de controles:
-#### Ex.3, 4, 10
+# Listas
+### Lista 2
+#### Para aqueles exercícios que precisam de controles:
+##### Ex.3, 4, 10
 - P: Exibir profundidade.
 - Z: Alternar entre preenchido e wireframe.
 - F12: Screenshot.
@@ -20,6 +23,12 @@ Nas listas, por uma falha na comunicação, eu (Marco) fiz no C++ e o Geovani fe
 #### Ex.8
 - I: Alternar InputMode.
 
-# Lista 2
-#### Ex.3
+### Lista 3
+#### Para aqueles exercícios que precisam de controles:
+##### Ex.3
 - B: Alternar entre Phong e Blinn-Phong.
+
+# Grau A
+Cena composta de uma sala com paredes de diferentes cores e objetos com diferentes materiais.
+
+- Assets utilizados: HDRP (Unity)
