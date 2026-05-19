@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="Ex2-1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="62ad909b-81b9-3a80-9518-3e2614a7d938">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex2-2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83a6a140-0828-3f3f-8556-137c5b1889ca">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex2-6.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b5dc78b2-3b5f-3c17-8a35-add2d910aea6">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex2-7.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d82fcf2a-eaa0-3483-b9da-0aa993669f83">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex2-8.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eb32de56-e5ef-389d-b911-9c383703355a">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex2-9.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="73985b79-9fc6-3a3c-b358-d4d48e0e0a87">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex3-1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f9bffadd-a289-3c8e-aa55-88bc4b2b7dc8">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex3-2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f4c18997-3033-3cc8-bbe1-c68ee150fe2c">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex3-3.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3de06418-b294-3ae6-b29e-ca07e1652a66">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex3-4.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8778b824-c808-3d4f-ad67-618c789e7793">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Ex3-5.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7f25c546-c4d3-3823-aa6c-7a3c4bf1b085">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="Parte1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ffb8e9fd-72a1-3ca7-916a-22cf6d007065">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
+	<Project Path="camera.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ffad6f2d-a7e0-3b1a-b0c5-37cfa589af6e">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Project Path="cube.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="826b984c-9320-336f-a249-ae2448bb2519">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Project Path="_deps/glm-build/glm/glm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2dfdf481-4a8c-3d71-847e-5fbebbff7542">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="ray.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f370511b-bebc-3aea-ae29-348a1fa1d67b">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Project Path="sphere.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="efc5f6b7-02f8-3d93-b088-a8c26a144446">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Project Path="triangle.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a19fe0c8-88c7-32e0-8ac4-2945ab934fd6">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Folder Name="/CMakePredefinedTargets/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d9eb246e-bede-3b38-a9fe-27f6d492c1b8" DefaultStartup="true">
+			<BuildDependency Project="Ex2-1.vcxproj"/>
+			<BuildDependency Project="Ex2-2.vcxproj"/>
+			<BuildDependency Project="Ex2-6.vcxproj"/>
+			<BuildDependency Project="Ex2-7.vcxproj"/>
+			<BuildDependency Project="Ex2-8.vcxproj"/>
+			<BuildDependency Project="Ex2-9.vcxproj"/>
+			<BuildDependency Project="Ex3-1.vcxproj"/>
+			<BuildDependency Project="Ex3-2.vcxproj"/>
+			<BuildDependency Project="Ex3-3.vcxproj"/>
+			<BuildDependency Project="Ex3-4.vcxproj"/>
+			<BuildDependency Project="Ex3-5.vcxproj"/>
+			<BuildDependency Project="Parte1.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="camera.vcxproj"/>
+			<BuildDependency Project="cube.vcxproj"/>
+			<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+			<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+			<BuildDependency Project="ray.vcxproj"/>
+			<BuildDependency Project="sphere.vcxproj"/>
+			<BuildDependency Project="triangle.vcxproj"/>
+		</Project>
+		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a5905d88-dbbe-3a97-b78f-f047d5351dba">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f0347827-7fa8-316a-b745-fc37a79f4e2b"/>
+	</Folder>
+	<Folder Name="/GLFW3/">
+		<Project Path="_deps/glfw-build/src/glfw.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c9c2fa5c-2c5d-3b2d-9920-1b1654b40a58">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="_deps/glfw-build/uninstall.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e9eeeff4-5f38-3c0d-99ab-5b25e8b9e335">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="_deps/glfw-build/src/update_mappings.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="431e583b-5176-3c0d-90f6-cd3749c8747a">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+	</Folder>
+</Solution>

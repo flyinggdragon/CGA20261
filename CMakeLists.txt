@@ -55,6 +55,7 @@ set(EXERCISES
     Lista3/Ex3-3
     Lista3/Ex3-4
     Lista3/Ex3-5
+    Lista6/Parte1
 )
 
 # Se formos usar classes separadas, adicionar aqui
@@ -65,6 +66,7 @@ add_library(cube
 target_include_directories(cube PUBLIC
     src/Lista2
     src/Lista3
+    src/Lista6
 )
 
 target_link_libraries(cube PUBLIC glfw)
@@ -77,9 +79,49 @@ add_library(camera
 target_include_directories(camera PUBLIC
     src/Lista2
     src/Lista3
+    src/Lista6
 )
 
 target_link_libraries(camera PUBLIC glfw)
+
+# Triângulo
+add_library(triangle
+    src/Lista2/Triangle/Triangle.cpp
+)
+
+target_include_directories(triangle PUBLIC
+    src/Lista2
+    src/Lista3
+    src/Lista6
+)
+
+target_link_libraries(triangle PUBLIC glfw)
+
+# Raio
+add_library(ray
+    src/Lista2/Ray/Ray.cpp
+)
+
+target_include_directories(ray PUBLIC
+    src/Lista2
+    src/Lista3
+    src/Lista6
+)
+
+target_link_libraries(ray PUBLIC glfw)
+
+# Esfera
+add_library(sphere
+    src/Lista2/Sphere/Sphere.cpp
+)
+
+target_include_directories(sphere PUBLIC
+    src/Lista2
+    src/Lista3
+    src/Lista6
+)
+
+target_link_libraries(sphere PUBLIC glfw)
 
 
 find_package(OpenGL REQUIRED)
@@ -105,7 +147,10 @@ foreach(EXERCISE ${EXERCISES})
 
     target_link_libraries(${EXE_NAME}
         cube
+        triangle
         camera
+        ray
+        sphere
         glfw
         glm
         OpenGL::GL

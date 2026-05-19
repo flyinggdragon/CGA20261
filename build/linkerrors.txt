@@ -1,0 +1,14 @@
+================================================================================
+Linker Errors
+Generated: 2026-05-19T15:46:47.235Z
+Total Errors: 3
+================================================================================
+
+[LNK2019] (MSVC)
+símbolo externo não resolvido, "public: __cdecl Sphere::Sphere(float,int,int)" (??0Sphere@@QEAA@MHH@Z), referenciado na função main [C:\Users\Acer\Documents\GitHub\CGA20261\build\Parte1.vcxproj]
+
+[LNK2019] (MSVC)
+símbolo externo não resolvido, "public: void __cdecl Sphere::Draw(unsigned int,struct glm::vec<3,float,0>)" (?Draw@Sphere@@QEAAXIU?$vec@$02M$0A@@glm@@@Z), referenciado na função main [C:\Users\Acer\Documents\GitHub\CGA20261\build\Parte1.vcxproj]
+
+[LNK1120] (MSVC)
+2 externo não resolvidos [C:\Users\Acer\Documents\GitHub\CGA20261\build\Parte1.vcxproj]
