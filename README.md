@@ -26,9 +26,18 @@ Entregas para a cadeira de Computação Gráfica Avançada 2026-1.
 ### Lista 3
 #### Para aqueles exercícios que precisam de controles:
 ##### Ex.3
-- B: Alternar entre Phong e Blinn-Phong.
 
 # Grau A
 Cena composta de uma sala com paredes de diferentes cores e objetos com diferentes materiais.
 
 - Assets utilizados: HDRP (Unity)
+
+
+### Lista 6
+#### Para aqueles exercícios que precisam de controles:
+##### Parte 1:
+- WASD: Mover câmera
+- TFGH: Mover triângulo
+- V/B: Mover triângulo para baixo e cima
+- IJKL: Mover raio
+- 8/9 - Encurtar/alongar raio
