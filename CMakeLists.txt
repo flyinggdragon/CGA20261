@@ -56,6 +56,7 @@ set(EXERCISES
     Lista3/Ex3-4
     Lista3/Ex3-5
     Lista6/Parte1
+    Lista7/Ex7
 )
 
 # Se formos usar classes separadas, adicionar aqui
@@ -119,6 +120,7 @@ target_include_directories(sphere PUBLIC
     src/Lista2
     src/Lista3
     src/Lista6
+    src/Lista7
 )
 
 target_link_libraries(sphere PUBLIC glfw)

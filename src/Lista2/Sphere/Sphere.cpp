@@ -49,9 +49,17 @@ void Sphere::BuildSphere(
             float x = xy * cos(sectorAngle);
             float y = xy * sin(sectorAngle);
 
-            vertices.push_back(x);
-            vertices.push_back(y);
-            vertices.push_back(z);
+            glm::vec3 position(x, y, z);
+
+            glm::vec3 normal = glm::normalize(position);
+
+            vertices.push_back(position.x);
+            vertices.push_back(position.y);
+            vertices.push_back(position.z);
+
+            vertices.push_back(normal.x);
+            vertices.push_back(normal.y);
+            vertices.push_back(normal.z);
         }
     }
 
@@ -107,20 +115,32 @@ void Sphere::BuildSphere(
         3,
         GL_FLOAT,
         GL_FALSE,
-        3 * sizeof(float),
+        6 * sizeof(float),
         (void*)0
     );
 
     glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(
+        1,
+        3,
+        GL_FLOAT,
+        GL_FALSE,
+        6 * sizeof(float),
+        (void*)(3 * sizeof(float))
+    );
+
+    glEnableVertexAttribArray(1);
 
     glBindVertexArray(0);
 }
 
 void Sphere::Draw(GLuint shaderID, glm::vec3 position) {
 
-    glm::mat4 model = glm::mat4(1.0f);
-
-    model = glm::translate(model, position);
+    glm::mat4 model = glm::translate(
+        glm::mat4(1.0f),
+        position
+    );
 
     glUniformMatrix4fv(
         glGetUniformLocation(shaderID, "model"),

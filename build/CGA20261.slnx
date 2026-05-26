@@ -117,6 +117,16 @@
 		<BuildDependency Project="sphere.vcxproj"/>
 		<BuildDependency Project="triangle.vcxproj"/>
 	</Project>
+	<Project Path="Ex7.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ce1cf5b9-ad22-3d21-a7c3-35cad3ad4e37">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="camera.vcxproj"/>
+		<BuildDependency Project="cube.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="ray.vcxproj"/>
+		<BuildDependency Project="sphere.vcxproj"/>
+		<BuildDependency Project="triangle.vcxproj"/>
+	</Project>
 	<Project Path="Parte1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ffb8e9fd-72a1-3ca7-916a-22cf6d007065">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 		<BuildDependency Project="camera.vcxproj"/>
@@ -163,6 +173,7 @@
 			<BuildDependency Project="Ex3-3.vcxproj"/>
 			<BuildDependency Project="Ex3-4.vcxproj"/>
 			<BuildDependency Project="Ex3-5.vcxproj"/>
+			<BuildDependency Project="Ex7.vcxproj"/>
 			<BuildDependency Project="Parte1.vcxproj"/>
 			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 			<BuildDependency Project="camera.vcxproj"/>

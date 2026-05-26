@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista2\Ex7.cpp">
+    <ClCompile Include="C:\Users\Acer\Documents\GitHub\CGA20261\src\Lista7\Ex7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Acer\Documents\GitHub\CGA20261\common\glad.c">
