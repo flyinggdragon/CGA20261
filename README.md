@@ -60,3 +60,4 @@ Cena composta de uma sala com paredes de diferentes cores e objetos com diferent
 - L: aumenta Ks
 - H: diminui Ks
 - D: aumenta Kd
+- A: diminui Kd
