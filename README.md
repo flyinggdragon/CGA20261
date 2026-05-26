@@ -41,3 +41,22 @@ Cena composta de uma sala com paredes de diferentes cores e objetos com diferent
 - V/B: Mover triângulo para baixo e cima
 - IJKL: Mover raio
 - 8/9 - Encurtar/alongar raio
+
+##### Parte 2:
+- 1–4 (selecionar objeto)
+- Esc (sair)
+- W/S (movimento no eixo Y)
+- A/D (movimento no eixo X)
+- Q/E (movimento no eixo Z)
+
+### Lista 7
+- LEFT / RIGHT: troca o material atual
+- R: aumenta roughness
+- F: diminui roughnes
+- M: aumenta metallic
+- N: diminui metallic
+- K: aumenta shininess
+- J: diminui shininess
+- L: aumenta Ks
+- H: diminui Ks
+- D: aumenta Kd
